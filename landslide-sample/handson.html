@@ -1,0 +1,3183 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>OpenStackハンズオン 基礎編</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>OpenStackハンズオン 基礎編</h1></header>
+            
+            
+            <section><img alt="./_assets/_title.png" src="./_assets/_title.png" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>基礎操作</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>目的<ul>
+<li>OpenStack上にHorizonを使って踏み台サーバを構築します。</li>
+<li>CLIを使ってシンプルなWEBサービスを実行する環境を構築します。</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>講師</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>中島倫明<ul>
+<li>日本OpenStackユーザ会<ul>
+<li>会長</li>
+</ul>
+</li>
+<li>一般社団法人クラウド利用促進機構<ul>
+<li>技術アドバイザー</li>
+</ul>
+</li>
+<li>国立情報学研究所<ul>
+<li>TOPSEコース 講師</li>
+</ul>
+</li>
+<li>伊藤忠テクノソリューションズ<ul>
+<li>普段はOSSを使ったクラウド技術の企画・開発</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>環境の確認</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>各自、ログイン情報を使って、Horizonへログインできるか確認してください。</li>
+<li><a class="reference external" href="http://192.168.253.1/horizon/">http://192.168.253.1/horizon/</a></li>
+</ul>
+<img alt="./_assets/01_login.png" src="./_assets/01_login.png" style="width: 300px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>前半：踏み台サーバーの構築</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの役割</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>今回の環境は、まずOpenStack上に踏み台サーバーを構築し、ここにログインしてその後の作業を行っていきます。</li>
+</ul>
+<img alt="./_assets/02_step-server.png" src="./_assets/02_step-server.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>作業の流れ</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>仮想ルーター Ext-Router の作成</li>
+<li>仮想ルーターと、Ext-Netの接続</li>
+<li>仮想ネットワーク work-net の作成<ul>
+<li>CIDR: 10.0.0.0/24   GW: 10.0.0.254</li>
+</ul>
+</li>
+<li>キーペア key-for-step-server の作成</li>
+<li>セキュリティグループ sg-for-step-server の作成<ul>
+<li>ssh を許可する</li>
+</ul>
+</li>
+<li>踏み台サーバーの作成</li>
+<li>Floating IPの割り当て</li>
+<li>SSHで踏み台サーバーへログイン <strong>ゴール</strong></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ルーターの作成</h1></header>
+            
+            
+            <section><p>1 初期状態のネットワークトポロジー</p>
+<img alt="./_assets/03_router_00.png" src="./_assets/03_router_00.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ルーターの作成2</h1></header>
+            
+            
+            <section><p>2 「ルーターの作成」を選択</p>
+<img alt="./_assets/03_router_01.png" src="./_assets/03_router_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ルーターの作成</h1></header>
+            
+            
+            <section><p>3 仮想ルーター： <em>Ext-Router</em> を作成</p>
+<img alt="./_assets/03_router_02.png" src="./_assets/03_router_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ルーターの作成</h1></header>
+            
+            
+            <section><p>4 作成された Ext-Router の 「ゲートウェイの設定」 を行う</p>
+<img alt="./_assets/03_router_03.png" src="./_assets/03_router_03.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ルーターの作成</h1></header>
+            
+            
+            <section><p>5 外部ネットワーク <em>Ext-Net</em> を選択する。</p>
+<img alt="./_assets/03_router_04.png" src="./_assets/03_router_04.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ルーターの作成</h1></header>
+            
+            
+            <section><p>6 ルーター作成後ののネットワークトポロジー</p>
+<img alt="./_assets/03_router_05.png" src="./_assets/03_router_05.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>1 「ネットワークの作成」を選択</p>
+<img alt="./_assets/04_network_01.png" src="./_assets/04_network_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>2 ネットワーク名： <em>work-net</em></p>
+<img alt="./_assets/04_network_02.png" src="./_assets/04_network_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>3 サブネット名： <em>work-subnet</em>     ネットワークアドレス： <em>10.0.0.0/24</em>    ゲートウェイIP： <em>10.0.0.254</em></p>
+<img alt="./_assets/04_network_03.png" src="./_assets/04_network_03.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>4 DNSサーバー： <em>8.8.8.8</em> &amp; <em>8.8.4.4</em></p>
+<img alt="./_assets/04_network_04.png" src="./_assets/04_network_04.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>5 <em>work-net</em> が正常に作成された状態</p>
+<img alt="./_assets/04_network_05.png" src="./_assets/04_network_05.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>6 <em>Ext-Router</em> を選択（リンクをクリック）</p>
+<img alt="./_assets/04_network_06.png" src="./_assets/04_network_06.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>7 「インターフェースの追加」を選択</p>
+<img alt="./_assets/04_network_07.png" src="./_assets/04_network_07.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>8 サムネット <em>work-net 10.0.0.0/24 (work-subnet)</em>  を選択</p>
+<img alt="./_assets/04_network_08.png" src="./_assets/04_network_08.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>9 正常にインターフェースが追加された状態</p>
+<img alt="./_assets/04_network_09.png" src="./_assets/04_network_09.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><p>10 ネットワーク作成後のトポロジー図</p>
+<img alt="./_assets/04_network_10.png" src="./_assets/04_network_10.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>キーペアの作成</h1></header>
+            
+            
+            <section><p>1 「キーペアの作成」を選択します。</p>
+<img alt="./_assets/05_keypair_01.png" src="./_assets/05_keypair_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>キーペアの作成</h1></header>
+            
+            
+            <section><p>2 キーペア <em>key-for-step-server</em> を作成します。</p>
+<img alt="./_assets/05_keypair_02.png" src="./_assets/05_keypair_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>キーペアの作成</h1></header>
+            
+            
+            <section><p>3 作成したキーペアのダウンロードが自動的に行われます。このファイルを再取得できないので、わかりやすい場所に保存し、なくさないようにしてください。</p>
+<img alt="./_assets/05_keypair_03.png" src="./_assets/05_keypair_03.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>キーペアの作成</h1></header>
+            
+            
+            <section><p>4 作成したキーペアの確認</p>
+<img alt="./_assets/05_keypair_04.png" src="./_assets/05_keypair_04.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>キーペアの作成</h1></header>
+            
+            
+            <section><p>5 Linux/Macの場合は、鍵の権限設定を行ってください。</p>
+<p>sampe command:</p>
+<pre class="literal-block">
+$ chmod 600 key-for-step-server.pem
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><p>1 「セキュリティグループの作成」を選択します。</p>
+<img alt="./_assets/06_secgroup_01.png" src="./_assets/06_secgroup_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><p>2 セキュリティグループ <em>sg-for-step-server</em> を作成します。</p>
+<img alt="./_assets/06_secgroup_02.png" src="./_assets/06_secgroup_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><p>3 セキュリティグループの作成に成功した状態。 <em>sg-for-step-server</em> 「ルールの編集」を選択します。</p>
+<img alt="./_assets/06_secgroup_03.png" src="./_assets/06_secgroup_03.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><p>4 「ルールの追加」を選択</p>
+<img alt="./_assets/06_secgroup_04.png" src="./_assets/06_secgroup_04.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><p>5 ルール： <em>SSH</em>  CIDR <em>0.0.0.0/0</em> を追加します。</p>
+<img alt="./_assets/06_secgroup_05.png" src="./_assets/06_secgroup_05.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><p>6 ルールの追加に成功した状態。</p>
+<img alt="./_assets/06_secgroup_06.png" src="./_assets/06_secgroup_06.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>1 「インスタンスの起動」を選択します。</p>
+<img alt="./_assets/07_instance_01.png" src="./_assets/07_instance_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>2 次項のパラメーターを入力</p>
+<img alt="./_assets/07_instance_02.png" src="./_assets/07_instance_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>アベイラビリティゾーン： <em>az1</em></li>
+<li>インスタンス名： <em>step-server</em></li>
+<li>フレーバー： <em>standard.xsmall</em></li>
+<li>インスタンス数： <em>1</em></li>
+<li>インスタンスのブートソース： <em>イメージから起動</em></li>
+<li>イメージ名： <em>centos-base</em></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>3 キーペア <em>key-for-step-server</em>  セキュリティグループ： <em>sg-for-step-server</em> を選択</p>
+<img alt="./_assets/07_instance_03.png" src="./_assets/07_instance_03.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>4 選択済みネットワークが <em>work-net</em> になっていることを確認。</p>
+<img alt="./_assets/07_instance_04.png" src="./_assets/07_instance_04.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>5 サーバー起動時に実行するスクリプトを入力。入力内容は次項を参照。</p>
+<img alt="./_assets/07_instance_05.png" src="./_assets/07_instance_05.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>カスタマイズ・スクリプト:</p>
+<pre class="literal-block">
+#!/bin/bash
+cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+yum install -q -y git
+cd /root
+git clone -q https://github.com/josug-book1-materials/install_cli.git
+cd install_cli &amp;&amp; sh install.sh
+cat &lt;&lt; EOF &gt; /root/openrc
+# 以下を自分の環境に合わせて値を変えてください。
+export OS_AUTH_URL=http://192.168.253.1:5000/v2.0/
+export OS_REGION_NAME=regionOne
+export OS_TENANT_NAME=okinawaXX
+export OS_USERNAME=studentXX
+export OS_PASSWORD=your-password
+EOF
+echo &quot;##### Userdata script completed #####&quot;
+</pre>
+<p>環境変数 <em>OS_XXXX</em> は、受講者個別の内容に変更が必要です。</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>6 起動に成功した状態。</p>
+<img alt="./_assets/07_instance_06.png" src="./_assets/07_instance_06.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>踏み台サーバーの起動</h1></header>
+            
+            
+            <section><p>7 リンク <em>step-server</em> を選択すると、起動ログの確認、コンソールへの接続が行えます。</p>
+<img alt="./_assets/07_instance_07.png" src="./_assets/07_instance_07.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Floating IP の割り当て</h1></header>
+            
+            
+            <section><p>1 仮想サーバーのメニューから「Floating IPの割り当て」を選択します。</p>
+<img alt="./_assets/08_floating_01.png" src="./_assets/08_floating_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Floating IP の割り当て</h1></header>
+            
+            
+            <section><p>2 まずは、「＋」ボタンを選択し、割り当てるFloating IPを、管理者が作成した、 <em>Ext-Net</em> から取得します。</p>
+<img alt="./_assets/08_floating_02.png" src="./_assets/08_floating_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              45/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Floating IP の割り当て</h1></header>
+            
+            
+            <section><p>3 プール： <em>Ext-Net</em> からFloating IPを取得します。</p>
+<img alt="./_assets/08_floating_03.png" src="./_assets/08_floating_03.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              46/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Floating IP の割り当て</h1></header>
+            
+            
+            <section><p>4 確保されたIPアドレスを、 <em>step-server</em> へ割り当てます。</p>
+<img alt="./_assets/08_floating_04.png" src="./_assets/08_floating_04.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              47/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Floating IP の割り当て</h1></header>
+            
+            
+            <section><p>5 正常に割り当てられた状態。</p>
+<img alt="./_assets/08_floating_05.png" src="./_assets/08_floating_05.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              48/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>SSHログイン</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>自分の端末から、SSHをクラインと使ってログインします。<ul>
+<li>SSHキーファイル： <em>key-for-step-server.pem</em></li>
+<li>Floating IP</li>
+</ul>
+</li>
+<li>正常に設定が行えていれば、OpenStack用の環境変数ファイルと、各種コマンドが利用できます。</li>
+</ul>
+<p>実行例:</p>
+<pre class="literal-block">
+$ ssh -i key-for-step-server.pem root&#64;xxx.xxx.xxx.xxx
+
+# ls -alF openrc
+-rw-r--r-- 1 root root 171 Dec  8 22:09 openrc
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              49/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>SSHログイン</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>以下のコマンドが実行出来れいれば正常です。</li>
+</ul>
+<p>コマンドの実行:</p>
+<pre class="literal-block">
+# source openrc
+
+# nova list
++--------------------------------------+-------------+--------+------------+-------------+--------------------------------------+
+| ID                                   | Name        | Status | Task State | Power State | Networks                             |
++--------------------------------------+-------------+--------+------------+-------------+--------------------------------------+
+| 703fb862-faa9-44c1-9654-54866e5226a5 | step-server | ACTIVE | -          | Running     | work-net=10.0.0.100, 192.168.253.114 |
++--------------------------------------+-------------+--------+------------+-------------+--------------------------------------+
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              50/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>前半のまとめ</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Horizonを使った、サーバー構築の基礎<ul>
+<li>仮想ルーター</li>
+<li>仮想ネットワーク</li>
+<li>セキュリティグループ</li>
+<li>カスタマイズ・スクリプト</li>
+<li>Floating IP</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              51/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>後半：シンプルなWEBサービスの構築</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              52/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>サービスの概要</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>踏み台サーバーからCLIを使って、サンプルアプリケーション環境を構築します。</li>
+<li>以下のサンプルアプリケーションを用いて、OpenStack上にデモサービスを展開していきます。</li>
+</ul>
+<img alt="./_assets/10_sampleapp.png" src="./_assets/10_sampleapp.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>作業の流れ</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>アプリケーション用仮想ネットワークの作成</li>
+<li>セキュリティグループの作成</li>
+<li>DBサーバーの構築</li>
+<li>APPサーバーの構築</li>
+<li>WEBサーバーの構築</li>
+<li>動作確認</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              54/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>完成形のイメージ</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>作業が完了すると以下の状態になります。</li>
+</ul>
+<img alt="./_assets/10_sampleapp_01.png" src="./_assets/10_sampleapp_01.png" style="width: 800px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              55/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>仮想ネットワークの作成</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>仮想ネットワークを作成していきます。まずは、次のコマンドで、それぞれの仮想ネットワークを定義します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# neutron net-create dmz-net
+# neutron net-create app-net
+# neutron net-create dbs-net
+</pre>
+<ul class="simple">
+<li>続いて、作成した仮想ネットワークにサブネットを割り当てて、<em>dmz-net</em> を仮想ルーター <em>Ext-Router</em> に接続します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# neutron subnet-create --ip-version 4 --gateway 192.168.0.254 --name dmz-subnet dmz-net 192.168.0.0/24
+# neutron subnet-create --ip-version 4 --no-gateway --name app-subnet app-net 172.16.10.0/24
+# neutron subnet-create --ip-version 4 --no-gateway --name dbs-subnet dbs-net 172.16.20.0/24
+# neutron router-interface-add Ext-Router dmz-subnet
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              56/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>アプリケーションの通信を許可するセキュリティグループを作成します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# neutron security-group-create sg-web-from-internet
+# neutron security-group-create sg-all-from-app-net
+# neutron security-group-create sg-all-from-dbs-net
+# neutron security-group-create sg-all-from-console
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              57/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>セキュリティグループの作成</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>ルールを追加します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
+--port-range-min 80 --port-range-max 80 --remote-ip-prefix 0.0.0.0/0 sg-web-from-internet
+# neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
+--port-range-min 443 --port-range-max 443 --remote-ip-prefix 0.0.0.0/0 sg-web-from-internet
+
+# neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
+--port-range-min 1 --port-range-max 65535 --remote-ip-prefix 172.16.10.0/24 sg-all-from-app-net
+# neutron security-group-rule-create --ethertype IPv4 --protocol icmp \
+--remote-ip-prefix 172.16.10.0/24 sg-all-from-app-net
+
+# neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
+--port-range-min 1 --port-range-max 65535 --remote-ip-prefix 172.16.20.0/24 sg-all-from-dbs-net
+# neutron security-group-rule-create --ethertype IPv4 --protocol icmp \
+--remote-ip-prefix 172.16.20.0/24 sg-all-from-dbs-net
+
+# neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
+--port-range-min 1 --port-range-max 65535 --remote-ip-prefix 10.0.0.0/24 sg-all-from-console
+# neutron security-group-rule-create --ethertype IPv4 --protocol icmp \
+--remote-ip-prefix 10.0.0.0/24 sg-all-from-console
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              58/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>キーペアの作成</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>これからディプロイするサーバーに使うキーペアを準備しておきます。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# cd $HOME
+# nova keypair-add key-for-internal | tee key-for-internal.pem
+# chmod 600 key-for-internal.pem
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              59/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>userdata の作成</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>先ほど、Horizonから投入したカスタマイズ・スクリプトをファイルとしｔ作成して、サーバー起動時に渡します。まず、ファイルを作成します。</li>
+<li>ファイルの中身は次項に記載します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# vi userdata_web.txt
+# vi userdata_app.txt
+# vi userdata_dbs.txt
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              60/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>userdata の作成</h1></header>
+            
+            
+            <section><p>userdata_web.txt:</p>
+<pre class="literal-block">
+#!/bin/bash
+cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+cd /root
+git clone -q https://github.com/josug-book1-materials/sample-app.git
+cd sample-app
+git checkout -b v1.0 remotes/origin/v1.0
+sh /root/sample-app/server-setup/install_web.sh
+echo &quot;##### Userdata script completed #####&quot;
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              61/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>userdata の作成</h1></header>
+            
+            
+            <section><p>userdata_app.txt:</p>
+<pre class="literal-block">
+#!/bin/bash
+cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+cd /root
+git clone -q https://github.com/josug-book1-materials/sample-app.git
+cd sample-app
+git checkout -b v1.0 remotes/origin/v1.0
+sh /root/sample-app/server-setup/install_rest.sh
+echo &quot;##### Userdata script completed #####&quot;
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              62/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>userdata の作成</h1></header>
+            
+            
+            <section><p>userdata_dbs.txt:</p>
+<pre class="literal-block">
+#!/bin/bash
+cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+cd /root
+git clone -q https://github.com/josug-book1-materials/sample-app.git
+cd sample-app
+git checkout -b v1.0 remotes/origin/v1.0
+sh /root/sample-app/server-setup/install_db.sh
+echo &quot;##### Userdata script completed #####&quot;
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              63/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>サーバー起動準備</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>ネットワークのuuidを環境変数に格納しておきます。必須の手順ではありませんが、コマンドに対してuuidを直接に記載すると可読性が悪くなるためです。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# function get_uuid () { cat - | grep &quot; id &quot; | awk '{print $4}'; }
+# export MY_DMZ_NET=`neutron net-show dmz-net | get_uuid`
+# export MY_APP_NET=`neutron net-show app-net | get_uuid`
+# export MY_DBS_NET=`neutron net-show dbs-net | get_uuid`
+
+# env |grep MY_
+MY_DBS_NET=abecabfd-8922-4bf4-a6db-e732b99d847e
+MY_APP_NET=a420a85f-0949-4129-9b51-ffff5d56f64b
+MY_DMZ_NET=8f7ce3a4-c89f-44ef-85d6-9fbe900b4630
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              64/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>サーバー起動</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>実際にサーバーを起動します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# nova boot --flavor standard.xsmall --image &quot;centos-base&quot; \
+--key-name key-for-internal --user-data userdata_web.txt \
+--security-groups sg-all-from-console,sg-web-from-internet,sg-all-from-app-net \
+--availability-zone az1 --nic net-id=${MY_DMZ_NET} --nic net-id=${MY_APP_NET} \
+web01
+
+# nova boot --flavor standard.xsmall --image &quot;centos-base&quot; \
+--key-name key-for-internal --user-data userdata_app.txt \
+--security-groups sg-all-from-console,sg-all-from-app-net,sg-all-from-dbs-net \
+--availability-zone az1 --nic net-id=${MY_DMZ_NET} --nic net-id=${MY_APP_NET} --nic net-id=${MY_DBS_NET} \
+app01
+
+# nova boot --flavor standard.xsmall --image &quot;centos-base&quot; \
+--key-name key-for-internal --user-data userdata_dbs.txt \
+--security-groups sg-all-from-console,sg-all-from-dbs-net \
+--availability-zone az1 --nic net-id=${MY_DMZ_NET} --nic net-id=${MY_DBS_NET} \
+dbs01
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              65/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>サーバー起動の確認</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>起動したサーバーの状態を以下のコマンドで確認します。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+$ nova console-log --length 30 web01
+$ nova console-log --length 30 app01
+$ nova console-log --length 30 dbs01
+</pre>
+<ul class="simple">
+<li>ログインプロンプトが確認できれば、起動は完了しています。</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              66/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>アプリケーションの設定</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>アプリケーションの設定を行います。<ul>
+<li>APPサーバー： 接続先となるDBサーバーのIPを設定する。</li>
+<li>WEBサーバー： 接続先となるAPPサーバーのIPを設定する。</li>
+</ul>
+</li>
+<li>起動したサーバーのIPアドレスを以下のコマンドで確認しておきます。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# nova list
++--------------------------------------+-------------+--------+------------+-------------+---------------------------------------------------------------+
+| ID                                   | Name        | Status | Task State | Power State | Networks                                                      |
++--------------------------------------+-------------+--------+------------+-------------+---------------------------------------------------------------+
+| 5f4087e8-30b4-487f-8bd1-c55d6308c4fd | app01       | ACTIVE | -          | Running     | dmz-net=192.168.0.3; app-net=172.16.10.3; dbs-net=172.16.20.3 |
+| 105fc9c9-dde3-4552-9bf9-b6203e028b9a | dbs01       | ACTIVE | -          | Running     | dmz-net=192.168.0.4; dbs-net=172.16.20.1                      |
+| e7b50e85-6c0f-4f10-8d07-a58836e58796 | step-server | ACTIVE | -          | Running     | work-net=10.0.0.5, 15.126.218.215                             |
+| c97d3326-8417-4e83-9b5d-aa1a976d83a5 | web01       | ACTIVE | -          | Running     | dmz-net=192.168.0.1; app-net=172.16.10.1                      |
++--------------------------------------+-------------+--------+------------+-------------+---------------------------------------------------------------+
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              67/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>アプリケーションの設定</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>APPサーバーへSSHで接続して設定を行います。</li>
+</ul>
+<p>APPサーバー:</p>
+<pre class="literal-block">
+# ssh -i key-for-internal.pem root&#64;192.168.0.3
+[root&#64;app01 ~]# vi /root/sample-app/endpoint.conf
+</pre>
+<p>endpoint.conf:</p>
+<pre class="literal-block">
+[db-server]
+db_host = 172.16.20.1
+db_endpoint = mysql://user:password&#64;%(db_host)s/sample_bbs?charset=utf8
+</pre>
+<ul class="simple">
+<li><em>db_host</em> にDBサーバーの <em>dbs-net</em> のアドレスを入力して保存します。</li>
+</ul>
+<p>アプリケーションの起動:</p>
+<pre class="literal-block">
+[root&#64;app01 ~]# sh /root/sample-app/server-setup/rest.init.sh start
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              68/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>アプリケーションの設定</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>WEBサーバーへSSHで接続して設定を行います。</li>
+</ul>
+<p>WEBサーバー:</p>
+<pre class="literal-block">
+# ssh -i key-for-internal.pem root&#64;192.168.0.1
+[root&#64;web01 ~]# vi /root/sample-app/endpoint.conf
+</pre>
+<p>endpoint.conf:</p>
+<pre class="literal-block">
+[rest-server]
+rest_host = 172.16.10.3
+rest_endpoint = http://%(rest_host)s:5555/bbs
+</pre>
+<ul class="simple">
+<li><em>rest_host</em> にDBサーバーの <em>app-net</em> のアドレスを入力して保存します。</li>
+</ul>
+<p>アプリケーションの起動:</p>
+<pre class="literal-block">
+[root&#64;web01 ~]# sh /root/sample-app/server-setup/web.init.sh start
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              69/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>アプリケーションの設定</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>WEBサーバーへSSHで接続して設定を行います。</li>
+</ul>
+<p>WEBサーバー:</p>
+<pre class="literal-block">
+# ssh -i key-for-internal.pem root&#64;192.168.0.1
+[root&#64;web01 ~]# vi /root/sample-app/endpoint.conf
+</pre>
+<p>endpoint.conf:</p>
+<pre class="literal-block">
+[rest-server]
+rest_host = 172.16.10.3
+rest_endpoint = http://%(rest_host)s:5555/bbs
+</pre>
+<ul class="simple">
+<li><em>rest_host</em> にDBサーバーの <em>app-net</em> のアドレスを入力して保存します。</li>
+</ul>
+<p>アプリケーションの起動:</p>
+<pre class="literal-block">
+[root&#64;web01 ~]# sh /root/sample-app/server-setup/web.init.sh start
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              70/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Floating IPの割り当てと、動作確認</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>外部からのブラウザアクセスを行うために、Floating IPを割り当てます。</li>
+</ul>
+<p>コマンド実行:</p>
+<pre class="literal-block">
+# nova floating-ip-create Ext-Net
++---------------+-----------+----------+---------+
+| Ip            | Server Id | Fixed Ip | Pool    |
++---------------+-----------+----------+---------+
+| 15.126.244.28 |           | -        | Ext-Net |
++---------------+-----------+----------+---------+
+
+# nova floating-ip-associate web01 15.126.244.28
+</pre>
+<ul class="simple">
+<li>自分の端末から、割り当てたIPアドレスへアクセスしてみてください。設定が上手く行っていれば、アプリケーションの画面が確認できるはずです。</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              71/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>ここまでの状態</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>ここまでの作業が終わっていると、以下の状態になっているはずです。</li>
+</ul>
+<img alt="./_assets/10_sampleapp_02.png" src="./_assets/10_sampleapp_02.png" style="width: 600px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              72/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>まとめ</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>CLIを使ったOpenStackの基本操作<ul>
+<li>userdataを流用する事で、何度でも同じ環境が構築可能です。</li>
+</ul>
+</li>
+<li>マルチネットワーク環境への仮想</li>
+<li>サンプルアプリケーションの実行</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              73/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: okinawa_handson.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Ansibleによる高度な自動化へ続く</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="okinawa_handson.rst">okinawa_handson.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              74/74
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">OpenStackハンズオン 基礎編</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">基礎操作</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">講師</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">環境の確認</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">前半：踏み台サーバーの構築</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">踏み台サーバーの役割</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">作業の流れ</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">仮想ルーターの作成</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">仮想ルーターの作成2</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">仮想ルーターの作成</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">仮想ルーターの作成</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">仮想ルーターの作成</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">仮想ルーターの作成</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">仮想ネットワークの作成</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">仮想ネットワークの作成</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">仮想ネットワークの作成</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">仮想ネットワークの作成</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">仮想ネットワークの作成</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">仮想ネットワークの作成</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">仮想ネットワークの作成</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">仮想ネットワークの作成</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">仮想ネットワークの作成</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">仮想ネットワークの作成</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">キーペアの作成</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">キーペアの作成</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">キーペアの作成</a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">キーペアの作成</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">キーペアの作成</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">セキュリティグループの作成</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">セキュリティグループの作成</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">セキュリティグループの作成</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">セキュリティグループの作成</a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">セキュリティグループの作成</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">セキュリティグループの作成</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">踏み台サーバーの起動</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">踏み台サーバーの起動</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-37">
+        <th><a href="#slide37">踏み台サーバーの起動</a></th>
+        <td><a href="#slide37">37</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-38">
+        <th><a href="#slide38">踏み台サーバーの起動</a></th>
+        <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">踏み台サーバーの起動</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">踏み台サーバーの起動</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">踏み台サーバーの起動</a></th>
+        <td><a href="#slide41">41</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-42">
+        <th><a href="#slide42">踏み台サーバーの起動</a></th>
+        <td><a href="#slide42">42</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-43">
+        <th><a href="#slide43">踏み台サーバーの起動</a></th>
+        <td><a href="#slide43">43</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44">Floating IP の割り当て</a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-45">
+        <th><a href="#slide45">Floating IP の割り当て</a></th>
+        <td><a href="#slide45">45</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-46">
+        <th><a href="#slide46">Floating IP の割り当て</a></th>
+        <td><a href="#slide46">46</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-47">
+        <th><a href="#slide47">Floating IP の割り当て</a></th>
+        <td><a href="#slide47">47</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-48">
+        <th><a href="#slide48">Floating IP の割り当て</a></th>
+        <td><a href="#slide48">48</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-49">
+        <th><a href="#slide49">SSHログイン</a></th>
+        <td><a href="#slide49">49</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-50">
+        <th><a href="#slide50">SSHログイン</a></th>
+        <td><a href="#slide50">50</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-51">
+        <th><a href="#slide51">前半のまとめ</a></th>
+        <td><a href="#slide51">51</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-52">
+        <th><a href="#slide52">後半：シンプルなWEBサービスの構築</a></th>
+        <td><a href="#slide52">52</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-53">
+        <th><a href="#slide53">サービスの概要</a></th>
+        <td><a href="#slide53">53</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-54">
+        <th><a href="#slide54">作業の流れ</a></th>
+        <td><a href="#slide54">54</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-55">
+        <th><a href="#slide55">完成形のイメージ</a></th>
+        <td><a href="#slide55">55</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-56">
+        <th><a href="#slide56">仮想ネットワークの作成</a></th>
+        <td><a href="#slide56">56</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-57">
+        <th><a href="#slide57">セキュリティグループの作成</a></th>
+        <td><a href="#slide57">57</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-58">
+        <th><a href="#slide58">セキュリティグループの作成</a></th>
+        <td><a href="#slide58">58</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-59">
+        <th><a href="#slide59">キーペアの作成</a></th>
+        <td><a href="#slide59">59</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-60">
+        <th><a href="#slide60">userdata の作成</a></th>
+        <td><a href="#slide60">60</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-61">
+        <th><a href="#slide61">userdata の作成</a></th>
+        <td><a href="#slide61">61</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-62">
+        <th><a href="#slide62">userdata の作成</a></th>
+        <td><a href="#slide62">62</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-63">
+        <th><a href="#slide63">userdata の作成</a></th>
+        <td><a href="#slide63">63</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-64">
+        <th><a href="#slide64">サーバー起動準備</a></th>
+        <td><a href="#slide64">64</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-65">
+        <th><a href="#slide65">サーバー起動</a></th>
+        <td><a href="#slide65">65</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-66">
+        <th><a href="#slide66">サーバー起動の確認</a></th>
+        <td><a href="#slide66">66</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-67">
+        <th><a href="#slide67">アプリケーションの設定</a></th>
+        <td><a href="#slide67">67</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-68">
+        <th><a href="#slide68">アプリケーションの設定</a></th>
+        <td><a href="#slide68">68</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-69">
+        <th><a href="#slide69">アプリケーションの設定</a></th>
+        <td><a href="#slide69">69</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-70">
+        <th><a href="#slide70">アプリケーションの設定</a></th>
+        <td><a href="#slide70">70</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-71">
+        <th><a href="#slide71">Floating IPの割り当てと、動作確認</a></th>
+        <td><a href="#slide71">71</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-72">
+        <th><a href="#slide72">ここまでの状態</a></th>
+        <td><a href="#slide72">72</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-73">
+        <th><a href="#slide73">まとめ</a></th>
+        <td><a href="#slide73">73</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-74">
+        <th><a href="#slide74">Ansibleによる高度な自動化へ続く</a></th>
+        <td><a href="#slide74">74</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
