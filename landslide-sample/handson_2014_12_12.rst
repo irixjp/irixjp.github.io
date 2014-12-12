@@ -1,7 +1,7 @@
 OpenStackハンズオン 基礎編
 ================
 
-.. image:: ./_assets/_title.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/_title.png
 
 ----
 
@@ -18,7 +18,7 @@ OpenStackハンズオン 基礎編
 講師
 ================
 
-- 中島倫明
+- @irix_jp
 
   - 日本OpenStackユーザ会
 
@@ -32,7 +32,7 @@ OpenStackハンズオン 基礎編
 
     - TOPSEコース 講師
 
-  - 伊藤忠テクノソリューションズ
+  - SIer勤務
 
     - 普段はOSSを使ったクラウド技術の企画・開発
 
@@ -45,7 +45,7 @@ OpenStackハンズオン 基礎編
 - 各自、ログイン情報を使って、Horizonへログインできるか確認してください。
 - http://192.168.253.1/horizon/
 
-.. image:: ./_assets/01_login.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/01_login.png
    :width: 300
 
 ----
@@ -63,7 +63,7 @@ OpenStackハンズオン 基礎編
 
 - 今回の環境は、まずOpenStack上に踏み台サーバーを構築し、ここにログインしてその後の作業を行っていきます。
 
-.. image:: ./_assets/02_step-server.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/02_step-server.png
    :width: 800
 
 
@@ -96,7 +96,7 @@ OpenStackハンズオン 基礎編
 
 1 初期状態のネットワークトポロジー
 
-.. image:: ./_assets/03_router_00.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/03_router_00.png
    :width: 800
 
 ----
@@ -106,7 +106,7 @@ OpenStackハンズオン 基礎編
 
 2 「ルーターの作成」を選択
 
-.. image:: ./_assets/03_router_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/03_router_01.png
    :width: 800
 
 ----
@@ -116,7 +116,7 @@ OpenStackハンズオン 基礎編
 
 3 仮想ルーター： *Ext-Router* を作成
 
-.. image:: ./_assets/03_router_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/03_router_02.png
    :width: 600
 
 ----
@@ -126,7 +126,7 @@ OpenStackハンズオン 基礎編
 
 4 作成された Ext-Router の 「ゲートウェイの設定」 を行う
 
-.. image:: ./_assets/03_router_03.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/03_router_03.png
    :width: 800
 
 ----
@@ -136,7 +136,7 @@ OpenStackハンズオン 基礎編
 
 5 外部ネットワーク *Ext-Net* を選択する。
 
-.. image:: ./_assets/03_router_04.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/03_router_04.png
    :width: 600
 
 ----
@@ -147,7 +147,7 @@ OpenStackハンズオン 基礎編
 
 6 ルーター作成後ののネットワークトポロジー
 
-.. image:: ./_assets/03_router_05.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/03_router_05.png
    :width: 800
 
 ----
@@ -159,7 +159,7 @@ OpenStackハンズオン 基礎編
 
 1 「ネットワークの作成」を選択
 
-.. image:: ./_assets/04_network_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_01.png
    :width: 800
 
 ----
@@ -169,7 +169,7 @@ OpenStackハンズオン 基礎編
 
 2 ネットワーク名： *work-net*
 
-.. image:: ./_assets/04_network_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_02.png
    :width: 600
 
 ----
@@ -179,7 +179,7 @@ OpenStackハンズオン 基礎編
 
 3 サブネット名： *work-subnet*     ネットワークアドレス： *10.0.0.0/24*    ゲートウェイIP： *10.0.0.254*
 
-.. image:: ./_assets/04_network_03.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_03.png
    :width: 600
 
 ----
@@ -189,7 +189,7 @@ OpenStackハンズオン 基礎編
 
 4 DNSサーバー： *8.8.8.8* & *8.8.4.4*
 
-.. image:: ./_assets/04_network_04.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_04.png
    :width: 600
 
 ----
@@ -199,7 +199,7 @@ OpenStackハンズオン 基礎編
 
 5 *work-net* が正常に作成された状態
 
-.. image:: ./_assets/04_network_05.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_05.png
    :width: 800
 
 ----
@@ -209,7 +209,7 @@ OpenStackハンズオン 基礎編
 
 6 *Ext-Router* を選択（リンクをクリック）
 
-.. image:: ./_assets/04_network_06.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_06.png
    :width: 800
 
 ----
@@ -219,7 +219,7 @@ OpenStackハンズオン 基礎編
 
 7 「インターフェースの追加」を選択
 
-.. image:: ./_assets/04_network_07.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_07.png
    :width: 800
 
 ----
@@ -229,7 +229,7 @@ OpenStackハンズオン 基礎編
 
 8 サムネット *work-net 10.0.0.0/24 (work-subnet)*  を選択
 
-.. image:: ./_assets/04_network_08.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_08.png
    :width: 600
 
 ----
@@ -239,7 +239,7 @@ OpenStackハンズオン 基礎編
 
 9 正常にインターフェースが追加された状態
 
-.. image:: ./_assets/04_network_09.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_09.png
    :width: 800
 
 ----
@@ -249,7 +249,7 @@ OpenStackハンズオン 基礎編
 
 10 ネットワーク作成後のトポロジー図
 
-.. image:: ./_assets/04_network_10.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/04_network_10.png
    :width: 800
 
 ----
@@ -260,7 +260,7 @@ OpenStackハンズオン 基礎編
 
 1 「キーペアの作成」を選択します。
 
-.. image:: ./_assets/05_keypair_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/05_keypair_01.png
    :width: 800
 
 ----
@@ -270,7 +270,7 @@ OpenStackハンズオン 基礎編
 
 2 キーペア *key-for-step-server* を作成します。
 
-.. image:: ./_assets/05_keypair_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/05_keypair_02.png
    :width: 600
 
 ----
@@ -280,7 +280,7 @@ OpenStackハンズオン 基礎編
 
 3 作成したキーペアのダウンロードが自動的に行われます。このファイルを再取得できないので、わかりやすい場所に保存し、なくさないようにしてください。
 
-.. image:: ./_assets/05_keypair_03.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/05_keypair_03.png
    :width: 800
 
 ----
@@ -290,7 +290,7 @@ OpenStackハンズオン 基礎編
 
 4 作成したキーペアの確認
 
-.. image:: ./_assets/05_keypair_04.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/05_keypair_04.png
    :width: 800
 
 ----
@@ -314,7 +314,7 @@ sampe command::
 
 1 「セキュリティグループの作成」を選択します。
 
-.. image:: ./_assets/06_secgroup_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/06_secgroup_01.png
    :width: 800
 
 ----
@@ -324,7 +324,7 @@ sampe command::
 
 2 セキュリティグループ *sg-for-step-server* を作成します。
 
-.. image:: ./_assets/06_secgroup_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/06_secgroup_02.png
    :width: 600
 
 ----
@@ -334,7 +334,7 @@ sampe command::
 
 3 セキュリティグループの作成に成功した状態。 *sg-for-step-server* 「ルールの編集」を選択します。
 
-.. image:: ./_assets/06_secgroup_03.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/06_secgroup_03.png
    :width: 800
 
 ----
@@ -344,7 +344,7 @@ sampe command::
 
 4 「ルールの追加」を選択
 
-.. image:: ./_assets/06_secgroup_04.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/06_secgroup_04.png
    :width: 800
 
 ----
@@ -354,7 +354,7 @@ sampe command::
 
 5 ルール： *SSH*  CIDR *0.0.0.0/0* を追加します。
 
-.. image:: ./_assets/06_secgroup_05.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/06_secgroup_05.png
    :width: 600
 
 ----
@@ -364,7 +364,7 @@ sampe command::
 
 6 ルールの追加に成功した状態。
 
-.. image:: ./_assets/06_secgroup_06.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/06_secgroup_06.png
    :width: 800
 
 ----
@@ -375,7 +375,7 @@ sampe command::
 
 1 「インスタンスの起動」を選択します。
 
-.. image:: ./_assets/07_instance_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_01.png
    :width: 800
 
 ----
@@ -385,7 +385,7 @@ sampe command::
 
 2 次項のパラメーターを入力
 
-.. image:: ./_assets/07_instance_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_02.png
    :width: 600
 
 ----
@@ -408,7 +408,7 @@ sampe command::
 
 3 キーペア *key-for-step-server*  セキュリティグループ： *sg-for-step-server* を選択
 
-.. image:: ./_assets/07_instance_03.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_03.png
    :width: 600
 
 ----
@@ -418,7 +418,7 @@ sampe command::
 
 4 選択済みネットワークが *work-net* になっていることを確認。
 
-.. image:: ./_assets/07_instance_04.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_04.png
    :width: 600
 
 ----
@@ -428,7 +428,7 @@ sampe command::
 
 5 サーバー起動時に実行するスクリプトを入力。入力内容は次項を参照。
 
-.. image:: ./_assets/07_instance_05.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_05.png
    :width: 600
 
 ----
@@ -466,7 +466,7 @@ sampe command::
 
 6 起動に成功した状態。
 
-.. image:: ./_assets/07_instance_06.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_06.png
    :width: 800
 
 ----
@@ -476,7 +476,7 @@ sampe command::
 
 7 リンク *step-server* を選択すると、起動ログの確認、コンソールへの接続が行えます。
 
-.. image:: ./_assets/07_instance_07.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/07_instance_07.png
    :width: 800
 
 ----
@@ -488,7 +488,7 @@ Floating IP の割り当て
 
 1 仮想サーバーのメニューから「Floating IPの割り当て」を選択します。
 
-.. image:: ./_assets/08_floating_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/08_floating_01.png
    :width: 800
 
 ----
@@ -499,7 +499,7 @@ Floating IP の割り当て
 
 2 まずは、「＋」ボタンを選択し、割り当てるFloating IPを、管理者が作成した、 *Ext-Net* から取得します。
 
-.. image:: ./_assets/08_floating_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/08_floating_02.png
    :width: 600
 
 ----
@@ -510,7 +510,7 @@ Floating IP の割り当て
 
 3 プール： *Ext-Net* からFloating IPを取得します。
 
-.. image:: ./_assets/08_floating_03.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/08_floating_03.png
    :width: 600
 
 ----
@@ -520,7 +520,7 @@ Floating IP の割り当て
 
 4 確保されたIPアドレスを、 *step-server* へ割り当てます。
 
-.. image:: ./_assets/08_floating_04.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/08_floating_04.png
    :width: 800
 
 ----
@@ -530,7 +530,7 @@ Floating IP の割り当て
 
 5 正常に割り当てられた状態。
 
-.. image:: ./_assets/08_floating_05.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/08_floating_05.png
    :width: 800
 
 ----
@@ -600,7 +600,7 @@ SSHログイン
 - 踏み台サーバーからCLIを使って、サンプルアプリケーション環境を構築します。
 - 以下のサンプルアプリケーションを用いて、OpenStack上にデモサービスを展開していきます。
 
-.. image:: ./_assets/10_sampleapp.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/10_sampleapp.png
    :width: 800
 
 ----
@@ -623,7 +623,7 @@ SSHログイン
 
 - 作業が完了すると以下の状態になります。
 
-.. image:: ./_assets/10_sampleapp_01.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/10_sampleapp_01.png
    :width: 800
 
 ----
@@ -962,7 +962,7 @@ Floating IPの割り当てと、動作確認
 
 - ここまでの作業が終わっていると、以下の状態になっているはずです。
 
-.. image:: ./_assets/10_sampleapp_02.png
+.. image:: https://raw.githubusercontent.com/irixjp/irixjp.github.io/master/landslide-sample/_assets/10_sampleapp_02.png
    :width: 600
 
 ----
