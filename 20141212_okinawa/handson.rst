@@ -439,6 +439,7 @@ sampe command::
 
 カスタマイズ・スクリプト::
 
+  ---------ここから---------
   #!/bin/bash
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
   yum install -q -y git
@@ -454,7 +455,7 @@ sampe command::
   export OS_PASSWORD=your-password
   EOF
   echo "##### Userdata script completed #####"
-
+  ---------ここまで---------
 
 環境変数 *OS_XXXX* は、受講者個別の内容に変更が必要です。
 
@@ -640,6 +641,11 @@ SSHログイン
   # neutron net-create app-net
   # neutron net-create dbs-net
 
+----
+
+仮想ネットワークの作成
+================
+
 - 続いて、作成した仮想ネットワークにサブネットを割り当てて、*dmz-net* を仮想ルーター *Ext-Router* に接続します。
 
 コマンド実行::
@@ -650,7 +656,6 @@ SSHログイン
   # neutron router-interface-add Ext-Router dmz-subnet
 
 ----
-
 
 セキュリティグループの作成
 ================
@@ -673,27 +678,38 @@ SSHログイン
 - ルールを追加します。
 
 コマンド実行::
-   
+
   # neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
   --port-range-min 80 --port-range-max 80 --remote-ip-prefix 0.0.0.0/0 sg-web-from-internet
   # neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
   --port-range-min 443 --port-range-max 443 --remote-ip-prefix 0.0.0.0/0 sg-web-from-internet
-   
+
   # neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
   --port-range-min 1 --port-range-max 65535 --remote-ip-prefix 172.16.10.0/24 sg-all-from-app-net
   # neutron security-group-rule-create --ethertype IPv4 --protocol icmp \
   --remote-ip-prefix 172.16.10.0/24 sg-all-from-app-net
-   
+
+- 続く
+
+----
+
+
+セキュリティグループの作成
+================
+
+- 続き
+
+コマンド実行::
+
   # neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
   --port-range-min 1 --port-range-max 65535 --remote-ip-prefix 172.16.20.0/24 sg-all-from-dbs-net
   # neutron security-group-rule-create --ethertype IPv4 --protocol icmp \
   --remote-ip-prefix 172.16.20.0/24 sg-all-from-dbs-net
-   
+
   # neutron security-group-rule-create --ethertype IPv4 --protocol tcp \
   --port-range-min 1 --port-range-max 65535 --remote-ip-prefix 10.0.0.0/24 sg-all-from-console
   # neutron security-group-rule-create --ethertype IPv4 --protocol icmp \
   --remote-ip-prefix 10.0.0.0/24 sg-all-from-console
-
 
 ----
 
@@ -732,6 +748,7 @@ userdata の作成
 
 userdata_web.txt::
 
+  ---------ここから---------
   #!/bin/bash
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
   cd /root
@@ -740,6 +757,7 @@ userdata_web.txt::
   git checkout -b v1.0 remotes/origin/v1.0
   sh /root/sample-app/server-setup/install_web.sh
   echo "##### Userdata script completed #####"
+  ---------ここまで---------
 
 ----
 
@@ -748,6 +766,7 @@ userdata の作成
 
 userdata_app.txt::
 
+  ---------ここから---------
   #!/bin/bash
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
   cd /root
@@ -756,6 +775,7 @@ userdata_app.txt::
   git checkout -b v1.0 remotes/origin/v1.0
   sh /root/sample-app/server-setup/install_rest.sh
   echo "##### Userdata script completed #####"
+  ---------ここまで---------
 
 ----
 
@@ -764,6 +784,7 @@ userdata の作成
 
 userdata_dbs.txt::
 
+  ---------ここから---------
   #!/bin/bash
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
   cd /root
@@ -772,6 +793,7 @@ userdata_dbs.txt::
   git checkout -b v1.0 remotes/origin/v1.0
   sh /root/sample-app/server-setup/install_db.sh
   echo "##### Userdata script completed #####"
+  ---------ここまで---------
 
 ----
 
@@ -865,7 +887,7 @@ userdata_dbs.txt::
 アプリケーションの設定
 ================
 
-- APPサーバーへSSHで接続して設定を行います。
+- APPサーバーへSSHで接続して設定を行います(IPアドレスは読み替えが必要)
 
 APPサーバー::
 
@@ -890,32 +912,7 @@ endpoint.conf::
 アプリケーションの設定
 ================
 
-- WEBサーバーへSSHで接続して設定を行います。
-
-WEBサーバー::
-
-  # ssh -i key-for-internal.pem root@192.168.0.1
-  [root@web01 ~]# vi /root/sample-app/endpoint.conf
-
-endpoint.conf::
-
-  [rest-server]
-  rest_host = 172.16.10.3
-  rest_endpoint = http://%(rest_host)s:5555/bbs
-
-- *rest_host* にDBサーバーの *app-net* のアドレスを入力して保存します。
-
-アプリケーションの起動::
-
-  [root@web01 ~]# sh /root/sample-app/server-setup/web.init.sh start
-
-----
-
-
-アプリケーションの設定
-================
-
-- WEBサーバーへSSHで接続して設定を行います。
+- WEBサーバーへSSHで接続して設定を行います(IPアドレスは読み替えが必要)
 
 WEBサーバー::
 
